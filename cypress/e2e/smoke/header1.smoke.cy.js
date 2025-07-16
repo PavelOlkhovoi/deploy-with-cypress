@@ -1,12 +1,12 @@
-describe('Second Deploy with Cypress Text', () => {
+describe('First Header Text - Smoke Test', () => {
   beforeEach(() => {
     cy.visit('http://localhost:5173')
   })
 
-  it('should display correct text and styling', () => {
+  it('should display correct text and styling for first header', () => {
     cy.get('.text-3xl')
-      .eq(1)
-      .should('have.text', 'Deploy with cypress 2')
+      .eq(0)
+      .should('have.text', 'Deploy with cypress')
       .and('have.class', 'ml-8')
       .and('have.class', 'text-3xl')
       .and('have.class', 'font-bold')
