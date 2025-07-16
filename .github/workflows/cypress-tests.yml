@@ -20,6 +20,10 @@ on:
         options:
           - smoke
           - experiments
+      file:
+        description: 'Specific test file to run (e.g., header1.smoke.cy.js). Leave empty to run all tests'
+        required: false
+        type: string
 
 jobs:
   test:
@@ -41,7 +45,7 @@ jobs:
           start: npm run dev
           wait-on: 'http://localhost:5173'
           browser: ${{ inputs.browser }}
-          spec: cypress/e2e/${{ inputs.folder }}/**/*.cy.js
+          spec: ${{ inputs.file != '' && format('cypress/e2e/{0}/{1}', inputs.folder, inputs.file) || format('cypress/e2e/{0}/**/*.cy.js', inputs.folder) }}
 
       - name: Upload Test Results
         if: always()
