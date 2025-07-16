@@ -12,6 +12,14 @@ on:
           - chrome
           - firefox
           - electron
+      folder:
+        description: 'Test folder to run (smoke or experiments)'
+        required: true
+        default: 'smoke'
+        type: choice
+        options:
+          - smoke
+          - experiments
 
 jobs:
   test:
@@ -33,12 +41,15 @@ jobs:
           start: npm run dev
           wait-on: 'http://localhost:5173'
           browser: ${{ inputs.browser }}
+          spec: cypress/e2e/${{ inputs.folder }}/**/*.cy.js
           
       - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-results
+          name: cypress-${{ inputs.folder }}-results
+          path: cypress/videos/
+          retention-days: 30          name: cypress-results
           path: |
             cypress/videos/
             cypress/screenshots/
