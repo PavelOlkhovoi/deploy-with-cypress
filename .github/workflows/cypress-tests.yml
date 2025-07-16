@@ -42,15 +42,13 @@ jobs:
           wait-on: 'http://localhost:5173'
           browser: ${{ inputs.browser }}
           spec: cypress/e2e/${{ inputs.folder }}/**/*.cy.js
-          
+
       - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cypress-${{ inputs.folder }}-results
-          path: cypress/videos/
-          retention-days: 30          name: cypress-results
           path: |
             cypress/videos/
             cypress/screenshots/
-          retention-days: 7
+          retention-days: 30
