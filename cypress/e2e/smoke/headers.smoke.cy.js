@@ -8,8 +8,15 @@ describe('All Headers - Smoke Test', () => {
   })
 
   it('should have correct text in all headers', () => {
-    cy.get('.text-3xl').each(($header) => {
-      cy.wrap($header).should('have.text', 'Deploy with cypress')
+    const expectedTexts = [
+      'Deploy with cypress 1',
+      'Deploy with cypress 2',
+      'Deploy with cypress 3',
+      'Deploy with cypress 4'
+    ]
+
+    cy.get('.text-3xl').each(($header, index) => {
+      cy.wrap($header).should('have.text', expectedTexts[index])
     })
   })
 
