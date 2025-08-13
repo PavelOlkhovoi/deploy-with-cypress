@@ -9,7 +9,18 @@ export default defineConfig({
   reporter: 'html',
   use: {
     trace: 'on-first-retry',
+    // Use system Chrome in CI to avoid browser download
+    channel: process.env.CI ? 'chrome' : undefined,
   },
+  projects: [
+    {
+      name: 'chromium',
+      use: { 
+        // Use system Chrome in CI
+        channel: process.env.CI ? 'chrome' : undefined,
+      },
+    },
+  ],
   webServer: {
     command: 'npm run dev',
     url: 'http://localhost:5173',
