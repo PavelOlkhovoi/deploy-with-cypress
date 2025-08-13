@@ -1,6 +1,6 @@
 describe('First Header Text - Smoke Test', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:5173')
+    cy.visit('/')
   })
 
   it('should display correct text and styling for first header', () => {
