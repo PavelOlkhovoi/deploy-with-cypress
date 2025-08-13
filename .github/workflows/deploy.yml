@@ -30,8 +30,8 @@ jobs:
           wait-on: 'http://localhost:5173'
           browser: chrome
 
-      # - name: Install Playwright Browsers
-      #   run: npx playwright install --with-deps
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
 
       - name: Playwright tests
         run: npx start-server-and-test "npm run dev" http://localhost:5173 "npm run test:playwright"
