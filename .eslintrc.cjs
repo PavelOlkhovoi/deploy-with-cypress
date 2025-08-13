@@ -18,4 +18,12 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  overrides: [
+    {
+      files: ['playwright.config.js'],
+      env: {
+        node: true,
+      },
+    },
+  ],
 }
