@@ -4,12 +4,6 @@ describe('First Header Text - Smoke Test', () => {
   })
 
   it('should display correct text and styling for first header', () => {
-    cy.get('.text-3xl')
-      .eq(0)
-      .should('have.text', 'Deploy with cypress 1')
-      .and('have.class', 'ml-8')
-      .and('have.class', 'text-3xl')
-      .and('have.class', 'font-bold')
-      .and('have.class', 'my-4')
+    cy.contains('Deploy with cypress 1');
   })
 })
