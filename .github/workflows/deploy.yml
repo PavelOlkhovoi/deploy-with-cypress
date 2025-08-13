@@ -31,7 +31,7 @@ jobs:
           browser: chrome
 
       - name: Playwright tests
-        run: npx start-server-and-test "npm run dev" http://localhost:5173 "npm run test:playwright"
+        run: npx playwright test
 
       - name: Upload Playwright Report
         if: always()
