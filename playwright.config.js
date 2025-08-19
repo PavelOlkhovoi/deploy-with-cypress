@@ -24,7 +24,7 @@ export default defineConfig({
   webServer: {
     command: 'npm run dev',
     url: 'http://localhost:5173',
-    reuseExistingServer: !process.env.CI, // In CI, always start fresh since Cypress has stopped
+    reuseExistingServer: process.env.CI, // In CI, reuse Cypress's server; locally start fresh
     timeout: 60_000,
   },
 });
