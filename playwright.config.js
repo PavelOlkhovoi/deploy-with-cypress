@@ -9,7 +9,7 @@ export default defineConfig({
   reporter: 'html',
   use: {
     trace: 'on-first-retry',
-    // Use system Chrome in CI to avoid browser download
+    baseURL: 'http://localhost:4222',
     channel: process.env.CI ? 'chrome' : undefined,
   },
   projects: [
@@ -22,9 +22,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:5173',
+    command: 'npm run dev --port=4222',
+    url: 'http://localhost:4222',
     reuseExistingServer: false,
-    timeout: 90_000,
+    timeout: 60000,
   },
 });
