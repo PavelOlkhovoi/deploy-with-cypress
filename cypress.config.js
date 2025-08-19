@@ -6,7 +6,7 @@ export default defineConfig({
       // implement node event listeners here
     },
     // Base URL for running the app locally with Vite dev server
-    baseUrl: 'http://localhost:5173',
+    baseUrl: 'http://localhost:5000',
     
     // CI Optimizations
     video: false,                    // Disable video recording in CI
