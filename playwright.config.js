@@ -22,9 +22,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev --port=4222',
+    command: 'npm run dev -- --port 4222',
     url: 'http://localhost:4222',
     reuseExistingServer: false,
-    timeout: 60000,
+    timeout: process.env.CI ? 90_000 : 60_000,
   },
 });
