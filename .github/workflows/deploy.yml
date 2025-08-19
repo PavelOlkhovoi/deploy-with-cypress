@@ -35,7 +35,8 @@ jobs:
           cache: false
 
       - name: Playwright tests
-        run: npx playwright test
+        # run: npx playwright test
+        run: npx start-server-and-test "npm run dev" http://localhost:5173 "npm run test:playwright"
 
       - name: Upload Playwright Report
         if: always()
