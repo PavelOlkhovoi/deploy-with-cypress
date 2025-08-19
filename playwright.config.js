@@ -21,11 +21,10 @@ export default defineConfig({
       },
     },
   ],
-  // webServer configuration disabled in CI since Cypress handles server startup
-  // webServer: {
-  //   command: 'npm run dev',
-  //   url: 'http://localhost:5173',
-  //   reuseExistingServer: true,
-  //   timeout: 60_000,
-  // },
+  webServer: {
+    command: 'npm run dev',
+    url: 'http://localhost:5173',
+    reuseExistingServer: !process.env.CI, // In CI, always start fresh since Cypress has stopped
+    timeout: 60_000,
+  },
 });
