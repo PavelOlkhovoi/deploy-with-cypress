@@ -23,8 +23,8 @@ export default defineConfig({
   ],
   webServer: {
     command: 'npm run dev',
-    url: 'http://localhost:4222',
+    url: 'http://localhost:5173',
     reuseExistingServer: false,
-    timeout: 60_000,
+    timeout: 90_000,
   },
 });
