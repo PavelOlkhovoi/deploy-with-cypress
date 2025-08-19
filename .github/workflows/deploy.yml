@@ -21,7 +21,7 @@ jobs:
           # cache-dependency-path: 'package-lock.json'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci --no-cache
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
@@ -32,6 +32,7 @@ jobs:
           record: false
           config: video=false,screenshotOnRunFailure=false
           env: CI=true
+          cache: false
 
       - name: Playwright tests
         run: npx playwright test
